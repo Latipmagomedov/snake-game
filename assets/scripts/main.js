@@ -1,5 +1,6 @@
 const scoreBlock = document.querySelector(".game__score-count");
 const canvas = document.querySelector(".game__canvas");
+const context = canvas.getContext("2d");
 let score = 0;
 
 const config = {
@@ -20,16 +21,13 @@ const snake = {
   tailColor: "#0083A0",
 };
 
-let berry = {
+const berry = {
   x: 0,
   y: 0,
   color: "#0083A0",
 };
 
-const context = canvas.getContext("2d");
-drawScore();
-
-function gameLoop() {
+const gameLoop = () => {
   requestAnimationFrame(gameLoop);
   if (++config.step < config.maxStep) {
     return;
@@ -39,11 +37,10 @@ function gameLoop() {
   context.clearRect(0, 0, canvas.width, canvas.height);
   drawBerry();
   drawSnake();
-}
-
+};
 requestAnimationFrame(gameLoop);
 
-function drawSnake() {
+const drawSnake = () => {
   snake.x += snake.dx;
   snake.y += snake.dy;
 
@@ -74,9 +71,9 @@ function drawSnake() {
       }
     }
   });
-}
+};
 
-function collisionBorder() {
+const collisionBorder = () => {
   if (snake.x < 0) {
     snake.x = canvas.width - config.sizeCell;
   } else if (snake.x >= canvas.width) {
@@ -88,9 +85,9 @@ function collisionBorder() {
   } else if (snake.y >= canvas.height) {
     snake.y = 0;
   }
-}
+};
 
-function refreshGame() {
+const refreshGame = () => {
   score = 0;
   drawScore();
 
@@ -102,9 +99,9 @@ function refreshGame() {
   snake.dy = 0;
 
   randomPositionBerry();
-}
+};
 
-function drawBerry() {
+const drawBerry = () => {
   context.beginPath();
   context.fillStyle = berry.color;
   context.arc(
@@ -115,25 +112,28 @@ function drawBerry() {
     2 * Math.PI
   );
   context.fill();
-}
+};
 
-function randomPositionBerry() {
+const getRandomInt = (min, max) => {
+  return Math.floor(Math.random() * (max - min) + min);
+};
+
+const randomPositionBerry = () => {
   berry.x = getRandomInt(0, canvas.width / config.sizeCell) * config.sizeCell;
   berry.y = getRandomInt(0, canvas.height / config.sizeCell) * config.sizeCell;
-}
+};
 
-function incScore() {
+const incScore = () => {
   score++;
   drawScore();
-}
+};
 
-function drawScore() {
+const drawScore = () => {
   scoreBlock.textContent = score;
-}
+};
 
-function getRandomInt(min, max) {
-  return Math.floor(Math.random() * (max - min) + min);
-}
+drawScore();
+randomPositionBerry();
 
 document.addEventListener("keydown", (e) => {
   if (e.code == "KeyW") {
