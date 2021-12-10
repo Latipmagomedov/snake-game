@@ -135,7 +135,7 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
 }
 
-document.addEventListener("keydown", function (e) {
+document.addEventListener("keydown", (e) => {
   if (e.code == "KeyW") {
     snake.dy = -config.sizeCell;
     snake.dx = 0;
