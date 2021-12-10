@@ -1,0 +1,114 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #353336;
+  color: #fff;
+  font-family: "Open Sans", sans-serif;
+}
+
+/* Wrapper */
+.game {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Header */
+.game__header {
+  width: 160px;
+  height: 50px;
+  background-color: #161618;
+  border-radius: 5px;
+}
+.game__score {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.game__score-count {
+  color: #0083a0;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+/* Game zone */
+.game__canvas-wrapper {
+  margin-top: 23px;
+  background-color: #161618;
+  border-radius: 5px;
+  border: 10px solid #161618;
+  box-shadow: 0 0 30px 7px #161618;
+  background-image: url("../images/cell.svg");
+}
+
+.game__control {
+  margin-top: 15px;
+  width: 153px;
+  display: none;
+  flex-direction: column;
+}
+
+.game__control-wrapperBtn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.game__control-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.game__control-btn {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  background-color: #161618;
+  border: 1px solid #fff;
+  outline: none;
+}
+
+.game__control-btn img {
+  min-width: 24px;
+  max-width: 24px;
+}
+
+@media (max-width: 980px) {
+  /* Wrapper */
+  .game {
+    min-height: 560px;
+    justify-content: flex-start;
+  }
+
+  /* Header */
+  .game__header {
+    margin-top: 5px;
+    width: 150px;
+    height: 40px;
+  }
+
+  /* Game zone */
+  .game__canvas-wrapper {
+    margin-top: 7px;
+    box-shadow: 0 0 10px 2px #161618;
+  }
+
+  .game__control {
+    display: flex;
+  }
+}

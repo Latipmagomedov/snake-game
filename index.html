@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Snake</title>
+    <link rel="stylesheet" href="assets/styles/style.css" />
+  </head>
+  <body>
+    <div class="game">
+      <div class="game__header">
+        <div class="game__score">
+          <div class="game__score-count">1234</div>
+        </div>
+      </div>
+      <div class="game__canvas-wrapper">
+        <canvas class="game__canvas" width="320px" height="360px"></canvas>
+      </div>
+      <div class="game__control">
+        <div class="game__control-wrapperBtn">
+          <button class="game__control-btn b-top">
+            <img src="assets/images/top.svg" />
+          </button>
+        </div>
+        <div class="game__control-wrapper">
+          <button class="game__control-btn b-left">
+            <img src="assets/images/left.svg" />
+          </button>
+          <button class="game__control-btn b-right">
+            <img src="assets/images/right.svg" />
+          </button>
+        </div>
+        <div class="game__control-wrapperBtn">
+          <button class="game__control-btn b-bottom">
+            <img src="assets/images/bottom.svg" />
+          </button>
+        </div>
+      </div>
+    </div>
+    <script src="assets/scripts/main.js"></script>
+  </body>
+</html>
