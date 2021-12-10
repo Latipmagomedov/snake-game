@@ -1,6 +1,6 @@
-const scoreBlock = document.querySelector(".game__score-count");
-const canvas = document.querySelector(".game__canvas");
-const context = canvas.getContext("2d");
+const scoreBlock = document.querySelector(".game__score-count"),
+  canvas = document.querySelector(".game__canvas"),
+  context = canvas.getContext("2d");
 let score = 0;
 
 const config = {
@@ -29,9 +29,7 @@ const berry = {
 
 const gameLoop = () => {
   requestAnimationFrame(gameLoop);
-  if (++config.step < config.maxStep) {
-    return;
-  }
+  if (++config.step < config.maxStep) return;
 
   config.step = 0;
   context.clearRect(0, 0, canvas.width, canvas.height);
