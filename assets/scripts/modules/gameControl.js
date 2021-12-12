@@ -18,7 +18,6 @@ const control = () => {
   });
 
   document.addEventListener("click", (e) => {
-    window.navigator.vibrate(10);
     const el = e.target;
     const check = (className) => {
       if (el.classList.contains(className) || el.closest(`.${className}`)) {
@@ -27,6 +26,10 @@ const control = () => {
         return false;
       }
     };
+
+    if (check("game__control-btn")) {
+      window.navigator.vibrate(10);
+    }
 
     if (check("b-top")) {
       snake.dy = -config.sizeCell;

@@ -1,4 +1,4 @@
-const scoreBlock = document.querySelector(".game__score-count");
+import { getElement } from "./shortFunctions.js";
 let score = 0;
 const incScore = () => {
   score++;
@@ -6,7 +6,8 @@ const incScore = () => {
 };
 
 const drawScore = () => {
-  scoreBlock.textContent = score;
+  getElement(".game__score-count").textContent = score;
+  getElement(".menu__score").textContent = score;
 };
 
 const clearScore = () => {
